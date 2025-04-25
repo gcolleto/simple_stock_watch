@@ -3,6 +3,7 @@ Simple stock watching script based on `yfinance`.
 
 
 Installation: `pip install -r requirements.txt`
+
 Configuration file format: `<Stock symbol>, <number of shares>, <initial buying price>`
 
 ## Command line usage
