@@ -85,6 +85,7 @@ def calculate_portfolio_value_and_variation(prices, shares, purchase_prices):
             # Store data for the stock
             portfolio_values[symbol] = {
                 "price": f'{price:.2f}',
+                "purchase": f'{purchase_prices[symbol]:.2f}',
                 "invested": f'{purchase_prices[symbol]*shares[symbol]:.2f}',
                 "total_value": f'{total_value:.2f}',
                 "benefit": f'{benefit:.2f}',
@@ -137,8 +138,8 @@ if __name__ == "__main__":
         price = stock_prices.get(symbol)
         portfolio_data = portfolio_values.get(symbol)
         if price is not None and portfolio_data is not None:
-            print(f"{symbol}: Price = ${price:.2f}, Value = ${portfolio_data['total_value']}, "
-                  f"Benefit = ${portfolio_data['benefit']}, Variation = {portfolio_data['percentage_variation']}%")
+            print(f"{symbol:<7}: ${price:<5.2f} (${portfolio_data['purchase']+')':<6}  | Value = ${portfolio_data['total_value']:<8} "
+                  f"Benefit = ${portfolio_data['benefit']:<8} ({portfolio_data['percentage_variation']}%)")
         else:
             print(f"{symbol}: Failed to fetch price or data")
 
